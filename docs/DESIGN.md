@@ -80,6 +80,45 @@ This design also enables the use of `.populate()` in Mongoose to dynamically res
 
 ---
 
+
+## 4. References vs. Embedding
+
+### Why Songs Are Referenced in Playlists
+
+Songs are stored as references in the Playlist model rather than being embedded directly to avoid data duplication and ensure consistency across the application. A single Song can belong to many Playlists, and its metadata (such as title, artist name, or duration) may change over time.
+
+By using references:
+- Updates to a Song are reflected everywhere it appears
+- Storage is more efficient
+- Playlists remain lightweight and scalable
+
+Embedding Songs would require updating every Playlist document whenever a Song changes, which becomes inefficient and error-prone as the system grows.
+
+---
+
+### Why Artists Are Referenced in Songs
+
+Each Song references its Artist directly to support efficient querying and flexible access patterns. This allows queries such as “find all songs by a specific artist” without first resolving Albums.
+
+This design choice:
+- Reduces query complexity
+- Improves performance for common queries
+- Supports features like search, recommendations, and Playlists where Songs are accessed independently of Albums
+
+While this introduces some redundancy (Artist referenced in both Album and Song), it is a deliberate trade-off to optimize read performance in a music streaming context.
+
+---
+
+### When Embedding Would Make Sense
+
+Embedding would be appropriate for data that:
+- Rarely changes
+- Is tightly coupled to the parent document
+- Is not reused elsewhere (e.g., comments on a playlist)
+
+In BeatHub, Songs and Artists are shared across many entities, making references the more scalable choice.
+
+
 ## Conclusion
 
 This schema design prioritizes clarity, performance, and maintainability.  

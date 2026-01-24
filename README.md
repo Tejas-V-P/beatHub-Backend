@@ -1,10 +1,9 @@
 # BeatHub Backend
 
-A MongoDB/Mongoose schema design for a music streaming application.  
-This backend models core relationships between artists, albums, songs, users, and playlists, and includes a database seeding script for development.
+A MongoDB/Mongoose backend schema for a music streaming application, modeling artists, albums, songs, users, and playlists with scalable relational design.
 
 ## How to Run
 
-1. Install dependencies:
-   ```bash
-   npm i
+```bash
+npm i
+node scripts/seed.js

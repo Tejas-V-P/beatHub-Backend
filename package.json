@@ -1,5 +1,5 @@
 {
-  "name": "blogify-api",
+  "name": "beathub-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongoose": "^9.1.5",
     "express": "^5.2.1"
   },
   "devDependencies": {
@@ -20,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tejas-V-P/blogify-api.git"
+    "url": "git+https://github.com/Tejas-V-P/beatHub-Backend.git"
   },
   "bugs": {
-    "url": "https://github.com/Tejas-V-P/blogify-api/issues"
+    "url": "https://github.com/Tejas-V-P/beatHub-Backend/issues"
   },
-  "homepage": "https://github.com/Tejas-V-P/blogify-api#readme"
+  "homepage": "https://github.com/Tejas-V-P/beatHub-Backend#readme"
 }

@@ -1,10 +1,13 @@
-const http = require('http');
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello, World!');
-});
+// src/index.js
+const express = require('express');
+const app = express();
 const PORT = 3000;
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+// 1. Import the router
+const postRouter = require('./routes/posts.routes.js');
+
+app.use('/api/v1/posts', postRouter);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
